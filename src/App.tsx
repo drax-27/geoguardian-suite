@@ -8,6 +8,13 @@ import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import DashboardLayout from "./components/layout/DashboardLayout";
 import Dashboard from "./pages/Dashboard";
+import RiskMap from "./pages/RiskMap";
+import Forecasts from "./pages/Forecasts";
+import Sensors from "./pages/Sensors";
+import Alerts from "./pages/Alerts";
+import Incidents from "./pages/Incidents";
+import Users from "./pages/Users";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +31,13 @@ const App = () => (
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<Dashboard />} />
+              <Route path="risk-map" element={<RiskMap />} />
+              <Route path="forecasts" element={<Forecasts />} />
+              <Route path="sensors" element={<Sensors />} />
+              <Route path="alerts" element={<Alerts />} />
+              <Route path="incidents" element={<Incidents />} />
+              <Route path="users" element={<Users />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
