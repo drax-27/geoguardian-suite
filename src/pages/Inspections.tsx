@@ -99,7 +99,7 @@ export default function Inspections() {
     const statusConfig = {
       scheduled: { variant: 'secondary' as const, icon: Clock },
       in_progress: { variant: 'default' as const, icon: Clock },
-      completed: { variant: 'default' as const, icon: CheckCircle, className: 'bg-risk-low text-white' },
+      completed: { variant: 'default' as const, icon: CheckCircle },
       cancelled: { variant: 'destructive' as const, icon: XCircle }
     };
 
@@ -107,7 +107,10 @@ export default function Inspections() {
     const Icon = config.icon;
 
     return (
-      <Badge variant={config.variant} className={config.className}>
+      <Badge 
+        variant={config.variant} 
+        className={status === 'completed' ? 'bg-risk-low text-white' : undefined}
+      >
         <Icon className="w-3 h-3 mr-1" />
         {status.replace('_', ' ').charAt(0).toUpperCase() + status.slice(1).replace('_', ' ')}
       </Badge>
